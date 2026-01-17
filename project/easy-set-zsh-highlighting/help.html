@@ -1,0 +1,107 @@
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <title>帮助信息</title>
+    </head>
+    <body>
+        <h2>zsh-syntax-highlighting 高亮类型说明</h2>
+
+        <p><b>unknown-token</b> - 未知命令或语法错误，例如 <code>curll http://google.com</code> 中的 <code>curll</code> 会被标记。</p>
+
+        <p><b>reserved-word</b> - Shell 保留字，例如 <code>if</code>、<code>for</code>。</p>
+
+        <p><b>alias</b> - 普通别名，例如 <code>alias ll='ls -l'</code>。</p>
+
+        <p><b>suffix-alias</b> - 后缀别名（需要 Zsh ≥5.1.1），例如 <code>alias -s txt=vim</code>，输入 <code>file.txt</code> 会自动执行 <code>vim file.txt</code>。</p>
+
+        <p><b>global-alias</b> - 全局别名，可出现在命令任意位置，例如 <code>alias -g G='| grep'</code>，输入 <code>ps aux G root</code> 会展开为 <code>ps aux | grep root</code>。</p>
+
+        <p><b>builtin</b> - Shell 内置命令，例如 <code>pwd</code>、<code>shift</code>。</p>
+
+        <p><b>function</b> - 函数名。</p>
+
+        <p><b>command</b> - 普通命令名（非别名、非内置）。</p>
+
+        <p><b>precommand</b> - 命令前修饰符，例如 <code>noglob</code>、<code>builtin</code>。</p>
+
+        <p><b>commandseparator</b> - 命令分隔符，例如 <code>;</code>、<code>&&</code>。</p>
+
+        <p><b>hashed-command</b> - Zsh hash table的命令(缓存在Zsh hash table中的命令),似乎已经失效,尝试在zsh中设置该选项,发现命令依旧为依旧为 <code>command</code> 的颜色。</p>
+
+        <p><b>autodirectory</b> - AUTO_CD 开启时命令位置的目录名。</p>
+
+        <p><b>path</b> - 已存在的文件名。</p>
+
+        <p><b>path_pathseparator</b> - 文件路径分隔符（<code>/</code>），默认使用 path。</p>
+
+        <p><b>path_prefix</b> - 已存在文件名前缀。</p>
+
+        <p><b>path_prefix_pathseparator</b> - 前缀路径分隔符（<code>/</code>），默认使用 path_prefix。</p>
+
+        <p><b>globbing</b> - 通配符表达式，例如 <code>*.txt</code>。</p>
+
+        <p><b>history-expansion</b> - 历史命令展开，例如 <code>!foo</code> 或 <code>^foo^bar</code>。</p>
+
+        <p><b>command-substitution</b> - 命令替换，例如 <code>$(echo foo)</code>。</p>
+
+        <p><b>command-substitution-unquoted</b> - 未加引号的命令替换。</p>
+
+        <p><b>command-substitution-quoted</b> - 加引号的命令替换，例如 <code>"$(echo foo)"</code>。</p>
+
+        <p><b>command-substitution-delimiter</b> - 命令替换分隔符 <code>$( 和 )</code>。</p>
+
+        <p><b>command-substitution-delimiter-unquoted</b> - 未加引号的命令替换分隔符。</p>
+
+        <p><b>command-substitution-delimiter-quoted</b> - 加引号的命令替换分隔符 <code>"$( 和 )"</code>。</p>
+
+        <p><b>process-substitution</b> - 进程替换，例如 <code><(echo foo)</code>。</p>
+
+        <p><b>process-substitution-delimiter</b> - 进程替换分隔符 <code><( 和 )</code>。</p>
+
+        <p><b>arithmetic-expansion</b> - 算术展开，例如 <code>$(( 42 ))</code>。</p>
+
+        <p><b>single-hyphen-option</b> - 单短横选项，例如 <code>-o</code>。</p>
+
+        <p><b>double-hyphen-option</b> - 双短横选项，例如 <code>--option</code>。</p>
+
+        <p><b>back-quoted-argument</b> - 反引号命令替换，例如 <code>`foo`</code>。</p>
+
+        <p><b>back-quoted-argument-unclosed</b> - 未闭合反引号命令替换，例如 <code>`foo</code>。</p>
+
+        <p><b>back-quoted-argument-delimiter</b> - 反引号分隔符 <code>`</code>。</p>
+
+        <p><b>single-quoted-argument</b> - 单引号参数，例如 <code>'foo'</code>。</p>
+
+        <p><b>single-quoted-argument-unclosed</b> - 未闭合单引号参数，例如 <code>'foo</code>。</p>
+
+        <p><b>double-quoted-argument</b> - 双引号参数，例如 <code>"foo"</code>。</p>
+
+        <p><b>double-quoted-argument-unclosed</b> - 未闭合双引号参数，例如 <code>"foo</code>。</p>
+
+        <p><b>dollar-quoted-argument</b> - $'foo' 类型参数。</p>
+
+        <p><b>dollar-quoted-argument-unclosed</b> - 未闭合 $'foo' 参数。</p>
+
+        <p><b>rc-quote</b> - 单引号中两个连续单引号（RC_QUOTES 选项生效），例如 <code>'foo''bar'</code>。</p>
+
+        <p><b>dollar-double-quoted-argument</b> - 双引号中的参数展开，例如 <code>$foo</code>。</p>
+
+        <p><b>back-double-quoted-argument</b> - 双引号中反斜杠转义，例如 <code>"foo\"bar"</code>。</p>
+
+        <p><b>back-dollar-quoted-argument</b> - $'...' 中的反斜杠转义，例如 <code>$'\x48'</code>。</p>
+
+        <p><b>assign</b> - 参数赋值，例如 <code>x=foo</code> 或 <code>x=(1 2 3)</code>。</p>
+
+        <p><b>redirection</b> - 重定向符号，例如 <code>&gt;</code>、<code>&lt;</code>。</p>
+
+        <p><b>comment</b> - 注释（INTERACTIVE_COMMENTS 生效时），例如 <code>echo # foo</code>。</p>
+
+        <p><b>named-fd</b> - 命名文件描述符，例如 <code>{fd}</code> 在 <code>echo foo {fd}>&2</code>。</p>
+
+        <p><b>numeric-fd</b> - 数字文件描述符，例如 <code>2</code> 在 <code>echo foo {fd}>&2</code>。</p>
+
+        <p><b>arg0</b> - 除命令、函数、别名、内置命令外的命令字。</p>
+
+        <p><b>default</b> - 其他未分类内容。</p>
+    </body>
+</html>

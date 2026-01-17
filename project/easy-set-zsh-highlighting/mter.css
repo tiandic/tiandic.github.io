@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    /* 左右布局 */
+    font-family: monospace;
+    background-color: #111;
+    color: white;
+}
+
+/* 左边终端 */
+#terminal {
+    flex: 1;
+    /* 占用剩余空间 */
+    border: 2px solid green;
+    margin: 10px;
+    padding: 10px;
+    background-color: black;
+    box-sizing: border-box;
+    overflow-y: auto;
+    white-space: pre-wrap;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+#color_options {
+    width: 200px;
+    border-left: 2px solid gray;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+    overflow-y: auto;
+}
+
+div[name="color_options_node"] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+p[name="color_options_node_p"] {
+    margin: 0;
+    max-width: 100px;
+}
+
+input[name="color_options_node_input_color"] {
+    max-width: 40px;
+    margin-left: auto;
+}
+
+.other_options {
+  position: relative;          /* 父容器相对定位 */
+  display: flex;
+  gap: 6px;
+}
+
+.other_options_labels {
+    display: flex;
+  position: absolute;          /* 浮层，脱离文档流 */
+  top: 0;
+  right: 100%;                 /* 向左展开 */
+  opacity: 0;
+  visibility: hidden;
+  background: #000000;
+border: 1px solid #ccc;
+z-index: 10;
+flex-direction: column;
+align-items: flex-end;
+min-width: 100px;
+}
+
+.other_options:hover .other_options_labels {
+  opacity: 1;
+  visibility: visible;
+}
+
+.arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.other_options:hover .arrow {
+  transform: rotate(180deg);
+}
